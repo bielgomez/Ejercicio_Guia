@@ -34,49 +34,72 @@ int main(int argc, char *argv[])
 		printf("Error en el Listen");
 	
 	int i;
-	// Atenderemos solo 5 peticione
-	for(i=0;i<7;i++){
+	// Bucle infinito
+	for(;;){
 		printf ("Escuchando\n");
 		
 		sock_conn = accept(sock_listen, NULL, NULL);
 		printf ("He recibido conexi?n\n");
 		//sock_conn es el socket que usaremos para este cliente
 		
-		// Ahora recibimos su nombre, que dejamos en buff
-		ret=read(sock_conn,buff, sizeof(buff));
-		printf ("Recibido\n");
-		
-		// Tenemos que a?adirle la marca de fin de string 
-		// para que no escriba lo que hay despues en el buffer
-		buff[ret]='\0';
-		
-		//Escribimos el nombre en la consola
-		
-		printf ("Se ha conectado: %s\n",buff);
-		
-		
-		char *p = strtok( buff, "/");
-		int codigo =  atoi (p);
-		p = strtok( NULL, "/");
-		char nombre[20];
-		strcpy (nombre, p);
-		printf ("Codigo: %d, Nombre: %s\n", codigo, nombre);
-		
-		if (codigo ==1) //piden la longitd del nombre
-			sprintf (buff2,"%d",strlen (nombre));
-		else
-			// quieren saber si el nombre es bonito
-			if((nombre[0]=='M') || (nombre[0]=='S'))
-			strcpy (buff2,"SI");
+		//Variable para saber si se tiene que desconectar porque han pulsado el boton en el cliente
+		int terminar = 0;
+		while (terminar==0)
+		{
+			// Ahora recibimos su nombre, que dejamos en buff
+			ret=read(sock_conn,buff, sizeof(buff));
+			printf ("Recibido\n");
+			
+			// Tenemos que a?adirle la marca de fin de string 
+			// para que no escriba lo que hay despues en el buffer
+			buff[ret]='\0';
+			
+			//Escribimos el nombre en la consola
+			printf ("Se ha conectado: %s\n",buff);
+			
+			char *p = strtok( buff, "/");
+			int codigo =  atoi (p);
+			
+			
+			if (codigo == 0)
+			{
+				terminar = 1;
+			}
 			else
-				strcpy (buff2,"NO");
-			
-			
-			printf ("%s\n", buff2);
-			// Y lo enviamos
-			write (sock_conn,buff2, strlen(buff2));
-			
-			// Se acabo el servicio para este cliente
-			close(sock_conn); 
+			{
+				p = strtok( NULL, "/");
+				char nombre[20];
+				strcpy (nombre, p);
+				printf ("Codigo: %d, Nombre: %s\n", codigo, nombre);
+				
+				if (codigo ==1) //piden la longitd del nombre
+					sprintf (buff2,"%d",strlen (nombre));
+				else if (codigo == 2)
+				{
+					// quieren saber si el nombre es bonito
+					if((nombre[0]=='M') || (nombre[0]=='S'))
+						strcpy (buff2,"SI");
+					else
+						strcpy (buff2,"NO");
+				}
+				else
+				{
+					//quieren saber si son altos
+					p = strtok(NULL,"/");
+					float altura = atof(p);
+					if (altura >= 1.70)
+						strcpy(buff2,"SI");
+					else
+						strcpy(buff2,"NO");
+				}
+				
+				printf ("%s\n", buff2);
+				// Y lo enviamos
+				write (sock_conn,buff2, strlen(buff2));
+			}
+		}
+		// Se acabo el servicio para este cliente
+		close(sock_conn);
+		
 	}
 }

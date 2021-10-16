@@ -22,28 +22,14 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
 
-           
+
         }
 
-   
+
         private void button2_Click(object sender, EventArgs e)
         {
-
-            //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
-            //al que deseamos conectarnos
-            IPAddress iPAddress = IPAddress.Parse("10.0.3.15");
-            IPAddress direc = iPAddress;
-            IPEndPoint ipep = new IPEndPoint(direc, 9080);
-
-
-            //Creamos el socket 
-            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
-                server.Connect(ipep);//Intentamos conectar el socket
-                this.BackColor = Color.Green;
-             
-
                 if (Longitud.Checked)
                 {
                     // Quiere saber la longitud
@@ -73,7 +59,7 @@ namespace WindowsFormsApplication1
 
                     //Procesamos la respuesta
                     if (mensaje == "SI")
-                        MessageBox.Show(nombre.Text+", eres alto/a.");
+                        MessageBox.Show(nombre.Text + ", eres alto/a.");
                     else
                         MessageBox.Show(nombre.Text + ", eres bajo/a.");
                 }
@@ -98,33 +84,56 @@ namespace WindowsFormsApplication1
 
 
                 }
-             
-                // Se terminó el servicio. 
-                // Nos desconectamos
-                this.BackColor = Color.Gray;
-                server.Shutdown(SocketShutdown.Both);
-                server.Close();
-
-
 
             }
-            catch (SocketException )
+            catch (SocketException)
+            {
+                //Si hay excepcion imprimimos error y salimos del programa con return 
+                MessageBox.Show("Se ha producido un error");
+                return;
+            }
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
+            //al que deseamos conectarnos
+            IPAddress iPAddress = IPAddress.Parse("192.168.56.102");
+            IPAddress direc = iPAddress;
+            IPEndPoint ipep = new IPEndPoint(direc, 9070);
+
+
+            //Creamos el socket 
+            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            try
+            {
+                server.Connect(ipep);//Intentamos conectar el socket
+                this.BackColor = Color.Green;
+                MessageBox.Show("Conectado");
+            }
+            catch (SocketException)
             {
                 //Si hay excepcion imprimimos error y salimos del programa con return 
                 MessageBox.Show("No he podido conectar con el servidor");
                 return;
-            } 
-
-          
-
-    
-          
-          
-
+            }
         }
 
-   
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Mensaje de desconexion
+            string mensaje = "0/";
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+ 
+            // Nos desconectamos
+            this.BackColor = Color.Gray;
+            server.Shutdown(SocketShutdown.Both);
+            server.Close();
 
-     
+            MessageBox.Show("Desconectado");
+        }
     }
 }
