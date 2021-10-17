@@ -63,6 +63,47 @@ namespace WindowsFormsApplication1
                     else
                         MessageBox.Show(nombre.Text + ", eres bajo/a.");
                 }
+                else if (Palindromo.Checked)
+                {
+                    //Quiere saber si el nombre es palindromo
+                    string mensaje = "4/" + nombre.Text;
+                    //Enviamos al servidor el nombre de la persona y su altura
+                    byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+                    server.Send(msg);
+
+                    //Recibimos la respuesta
+                    byte[] msg2 = new byte[80];
+                    server.Receive(msg2);
+                    mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+
+                    //Procesamos la respuesta
+                    if (mensaje == "SI")
+                    {
+                        MessageBox.Show("Tu nombre es palindromo.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tu nombre no es palindromo");
+                    }
+
+                }
+                else if (Mayusculas.Checked)
+                {
+                    //Quieren obtener su nombre en mayusculas
+                    string mensaje = "5/" + nombre.Text;
+                    //Enviamos al servidor el nombre de la persona y su altura
+                    byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+                    server.Send(msg);
+
+                    //Recibimos la respuesta
+                    byte[] msg2 = new byte[80];
+                    server.Receive(msg2);
+                    mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+
+                    //Procesamos la respuesta
+                    nombre.Text = mensaje;
+                    MessageBox.Show("Tu nombre en mayusculas:" + mensaje);
+                }
                 else
                 {
                     // Quiere saber si el nombre es bonito

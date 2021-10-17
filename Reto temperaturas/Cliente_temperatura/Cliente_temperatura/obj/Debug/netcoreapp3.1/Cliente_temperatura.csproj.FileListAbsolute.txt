@@ -1,0 +1,15 @@
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\bin\Debug\netcoreapp3.1\Cliente_temperatura.exe
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\bin\Debug\netcoreapp3.1\Cliente_temperatura.deps.json
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\bin\Debug\netcoreapp3.1\Cliente_temperatura.runtimeconfig.json
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\bin\Debug\netcoreapp3.1\Cliente_temperatura.runtimeconfig.dev.json
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\bin\Debug\netcoreapp3.1\Cliente_temperatura.dll
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\bin\Debug\netcoreapp3.1\Cliente_temperatura.pdb
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\obj\Debug\netcoreapp3.1\Cliente_temperatura.csprojAssemblyReference.cache
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\obj\Debug\netcoreapp3.1\Cliente_temperatura.Form1.resources
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\obj\Debug\netcoreapp3.1\Cliente_temperatura.csproj.GenerateResource.cache
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\obj\Debug\netcoreapp3.1\Cliente_temperatura.AssemblyInfoInputs.cache
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\obj\Debug\netcoreapp3.1\Cliente_temperatura.AssemblyInfo.cs
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\obj\Debug\netcoreapp3.1\Cliente_temperatura.csproj.CoreCompileInputs.cache
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\obj\Debug\netcoreapp3.1\Cliente_temperatura.dll
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\obj\Debug\netcoreapp3.1\Cliente_temperatura.pdb
+C:\Users\bielg\OneDrive\Escriptori\3A\SO\Ejercicio Guia\Reto temperaturas\Cliente_temperatura\Cliente_temperatura\obj\Debug\netcoreapp3.1\Cliente_temperatura.genruntimeconfig.cache
