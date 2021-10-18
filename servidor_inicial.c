@@ -5,6 +5,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <stdio.h>
+#include <ctype.h>
 
 int main(int argc, char *argv[])
 {
@@ -81,6 +82,45 @@ int main(int argc, char *argv[])
 						strcpy (buff2,"SI");
 					else
 						strcpy (buff2,"NO");
+				}
+				else if (codigo==4) //Nombre palindromo
+				{
+					//para tener todo en minusculas para hacer la comprobacion
+					int i = 0;
+					while(nombre[i]!='\0'){
+						nombre[i]=tolower(nombre[i]);
+						i=i+1;
+					}
+					
+					int p_inicial = 0;
+					int p_final = strlen(nombre)-1;
+					int diferencia = 0;
+					while (p_inicial<p_final && diferencia==0){
+						
+						if (nombre[p_inicial]==nombre[p_final]){
+							p_inicial=p_inicial+1;
+							p_final = p_final-1;
+						}
+						else
+							diferencia=1;
+						
+					}
+					if(diferencia==0)
+						strcpy(buff2,"SI");
+					else
+						strcpy(buff2,"NO");
+					
+				}
+				else if (codigo == 5){
+					
+					//quieren el nombre en mayusculas
+					int i = 0;
+					while(nombre[i]!='\0'){
+						nombre[i]=toupper(nombre[i]);
+						i=i+1;
+					}
+					
+					strcpy(buff2,nombre);
 				}
 				else
 				{

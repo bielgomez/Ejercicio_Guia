@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
 			//Quiere conversion de C a F;
 			p = strtok(NULL,"/");
 			float temp_C = atof(p);
-			float temp_F = 9/5*temp_C+32;
+			float temp_F = 9.0/5.0*temp_C+32;
 			sprintf(buff2,"%f",temp_F);
 			
 		}
@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
 			//Quiere conversion de F a C;
 			p = strtok(NULL,"/");
 			float temp_F = atof(p);
-			float temp_C = (5/9)*(temp_F-32);
+			float temp_C = (5.0/9.0)*(temp_F-32);
 			sprintf(buff2,"%f",temp_C);
 		}
 			
